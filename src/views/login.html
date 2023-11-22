@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Web Extensão</title>
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+  <div id="container">
+    <h1>Bem vindo de novo! Entre com a sua conta</h1>
+
+    <span class="error server-message">{{ error.message }}</span>
+
+    <span class="success server-message">{{ success.message }}</span>
+
+    <form action="/login" method="POST" id="form">
+      <div>
+        <label for="email">Email</label>
+        <input
+          id="email"
+          required
+          type="email"
+          name="email"
+        />
+      </div>
+
+      <div>
+        <label for="password">Senha</label>
+        <input
+          id="password"
+          required
+          type="password"
+          name="password"
+        />
+      </div>
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <div class="link-wrapper">
+      <a href="/sign-up">
+        Não tem conta? Faça seu cadastro!
+      </a>
+    </div>
+  </div>
+  <script src="js/login.js"></script>
+</body>
+</html>

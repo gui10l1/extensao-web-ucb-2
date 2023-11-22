@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Web Extensão</title>
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/profile.css">
+</head>
+
+<body>
+  <header id="header">
+    <span>Olá, {{ user.name }}</span>
+
+    <div>
+      <a href="/home">Dashboard</a>
+
+      <a href="/logout">Sair</a>
+    </div>
+  </header>
+
+  <div id="container">
+    <h1>Seus dados...</h1>
+
+    <span class="error server-message">{{ error.message }}</span>
+
+    <span class="success server-message">{{ success.message }}</span>
+
+    {{ #user }}
+    <form action="/update" method="POST" id="form">
+      <div>
+        <label for="name">Nome</label>
+        <input id="name" required type="text" name="name" value="{{ user.name }}" />
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input id="email" required type="email" name="email" value="{{ user.email }}" />
+      </div>
+
+      <div>
+        <label for="phone">Celular</label>
+        <input id="phone" required type="text" name="phone" value="{{ user.phone }}" />
+      </div>
+
+      <div>
+        <label for="password">Senha</label>
+        <input id="password" required type="text" name="password" value="{{ user.password }}" />
+      </div>
+
+      <div>
+        <label for="confirmPassword">Confirme sua senha</label>
+        <input id="confirmPassword" required type="text" name="confirmPassword" />
+      </div>
+
+      <button type="submit">Atualizar meus dados</button>
+    </form>
+    {{ /user }}
+  </div>
+
+  <script src="js/profile.js"></script>
+</body>
+
+</html>

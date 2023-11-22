@@ -1,0 +1,106 @@
+#header {
+  border-bottom: 1px solid #e1e1e1;
+  box-shadow: 0 0 5px #e1e1e1;
+  padding: 10px 20px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#header img {
+  max-width: 50px;
+  height: auto;
+}
+#header a {
+  color: #141414;
+  font-size: 18px;
+  text-decoration: none;
+}
+#header div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+#header div button {
+  color: #141414;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 700;
+}
+#main {
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+#footer > button {
+  height: 44px;
+  background-color: green;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0 10px;
+  margin: 0 auto;
+  display: block;
+}
+#footer > form {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  max-width: 90%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+#footer > form > input {
+  border-radius: 4px;
+  font-size: 18px;
+  padding: 10px 5px;
+  border: 1px solid #e1e1e1;
+  flex: 1;
+}
+#footer > form > input[type="number"] {
+  max-width: 115px;
+}
+#footer > form > input::placeholder {
+  font-size: 18px;
+  color: #ccc;
+}
+#footer > form > button {
+  padding: 10px 5px;
+  max-width: max-content;
+  border-radius: 4px;
+}
+#footer > form > button[type="button"] {
+  background-color: red;
+  color: #fff;
+}
+#footer > form > button[type="submit"] {
+  background-color: green;
+  color: #fff;
+}
+#footer > form > button[type="submit"].edit {
+  background-color: gold;
+}
+#table-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+#table-action button {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#table-action .danger {
+  background-color: red;
+}
+#table-action .warning {
+  background-color: gold;
+}
+

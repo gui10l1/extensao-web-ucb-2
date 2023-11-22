@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Web Extensão</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/home.css">
+</head>
+
+<body>
+  <div>
+    <header id="header">
+      <span>Olá, {{ user.name }}</span>
+
+      <div>
+        <a href="/profile">Ver perfil</a>
+
+        <a href="/logout">Sair</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <span class="server-message error">
+        {{ error.message }}
+      </span>
+
+      <table class="table table-bordered">
+        <thead>
+          <th>Nome do produto</th>
+          <th>Preço do produto</th>
+          <th>Quantidade disponível</th>
+          <th>Descrição</th>
+          <th>Ações</th>
+        </thead>
+
+        <tbody>
+          {{ #products }}
+          <tr>
+            <td>{{ name }}</td>
+            <td>{{ price }}</td>
+            <td>{{ quantity }}</td>
+            <td>{{ description }}</td>
+            <td>
+              <div id="table-action">
+                <form method="GET">
+                  <input type="hidden" name="id" value="{{ id }}">
+
+                  <button type="submit" class="warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-edit">
+                      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                  </button>
+                </form>
+
+                <form action="/product/delete/{{ id }}" class="deleteForm" method="POST">
+                  <button type="submit" class="danger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-trash-2">
+                      <polyline points="3 6 5 6 21 6"></polyline>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                      <line x1="10" y1="11" x2="10" y2="17"></line>
+                      <line x1="14" y1="11" x2="14" y2="17"></line>
+                    </svg>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+          {{ /products }}
+        </tbody>
+      </table>
+      <!-- <DataTable data={dataTable} columns={columns} striped /> -->
+    </main>
+
+    <footer id="footer">
+      <button type="button" id="formToggler" {{ #edit }}style="display: none;" {{ /edit }}>
+        Adicionar novo produto
+      </button>
+
+      <form id="form" action="{{ #edit }}/product/edit/{{ product.id }}{{ /edit }}{{ ^edit }}/product{{ /edit }}"
+        method="POST" {{ #edit }}style="display: flex;" {{ /edit }}>
+        <input name="name" value="{{ product.name }}" placeholder="Nome do produto" required />
+
+        <input name="price" value="{{ product.price }}" type="number" max="999999.99" placeholder="Preço" required />
+
+        <input name="description" value="{{ product.description }}" placeholder="Descrição" required />
+
+        <input name="quantity" value="{{ product.quantity }}" type="number" min="1" max="999" onChange={onChange}
+          placeholder="Quantidade" required />
+
+        <button type="button" id="cancelForm">
+          Cancelar
+        </button>
+
+        <button type="submit" {{ #edit }}class="edit" {{ /edit }}>
+          {{ #edit }}Atualizar{{ /edit }}
+          {{ ^edit }}Adicionar{{ /edit }}
+        </button>
+      </form>
+    </footer>
+  </div>
+  <script src="/js/home.js"></script>
+</body>
+
+</html>
