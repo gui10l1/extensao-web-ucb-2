@@ -25,10 +25,14 @@ async function signUpUser(req, res) {
 }
 
 async function goToSignUpPage(req, res) {
+  if (req.session.authorized) return res.redirect('/home');
+  
   return res.render("sign-up.html");
 }
 
 async function goToLoginPage(req, res) {
+  if (req.session.authorized) return res.redirect('/home');
+
   return res.render("login.html");
 }
 
