@@ -13,7 +13,11 @@
   <div id="container">
     <h1>Faça seu cadastro!</h1>
 
-    <span class="error server-message">{{ error.message }}</span>
+    <span id="error" class="error server-message">{{ error.message }}</span>
+
+    <div id="validator-container">
+      <span id="validator"></span>
+    </div>
 
     <form id="form" method="POST" action="/sign-up">
       <div>

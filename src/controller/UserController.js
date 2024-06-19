@@ -18,7 +18,7 @@ async function signUpUser(req, res) {
   } catch (err) {
     console.log(err);
 
-    res.render("sing-up.html", {
+    res.render("sign-up.html", {
       error: { message: "Erro interno do servidor!" },
     });
   }

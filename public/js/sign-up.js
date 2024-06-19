@@ -1,7 +1,11 @@
 const form = document.getElementById('form');
 
+const validator = document.getElementById('validator');
+
 async function handleFormSubmit(event) {
   event.preventDefault();
+
+  validator.textContent = null;
 
   const formData = new FormData(event.target);
 
@@ -9,7 +13,7 @@ async function handleFormSubmit(event) {
   const confirmPassword = formData.get('confirmPassword');
 
   if (password !== confirmPassword) {
-    alert('As senhas não são iguais!');
+    validator.textContent = 'As senhas não são iguais!';
     return;
   }
 

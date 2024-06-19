@@ -11,9 +11,9 @@
   <div id="container">
     <h1>Bem vindo de novo! Entre com a sua conta</h1>
 
-    <span class="error server-message">{{ error.message }}</span>
+    <span id="error" class="error server-message">{{ error.message }}</span>
 
-    <span class="success server-message">{{ success.message }}</span>
+    <span id="success" class="success server-message">{{ success.message }}</span>
 
     <form action="/login" method="POST" id="form">
       <div>

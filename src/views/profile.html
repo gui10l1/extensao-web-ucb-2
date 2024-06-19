@@ -23,9 +23,9 @@
   <div id="container">
     <h1>Seus dados...</h1>
 
-    <span class="error server-message">{{ error.message }}</span>
+    <span class="error server-message" id="error">{{ error.message }}</span>
 
-    <span class="success server-message">{{ success.message }}</span>
+    <span class="success server-message" id="success">{{ success.message }}</span>
 
     {{ #user }}
     <form action="/update" method="POST" id="form">
